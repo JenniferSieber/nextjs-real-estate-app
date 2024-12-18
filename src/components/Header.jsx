@@ -19,8 +19,10 @@ export default function Header() {
     e.preventDefault();
     console.log(e);
   };
+
   return (
     <header className="bg-slate-200 shadow-md">
+
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link href="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
@@ -28,6 +30,7 @@ export default function Header() {
             <span className="text-slate-700">Estates</span>
           </h1>
         </Link>
+
         <form
           onSubmit={handleSubmit}
           className="bg-slate-100 p-3 rounded-lg flex items-center"
@@ -43,17 +46,20 @@ export default function Header() {
             <FaSearch className="text-slate-600" />
           </button>
         </form>
+
         <ul className="flex gap-4">
           <Link href="/">
             <li className="hidden md:inline text-slate-700 hover:underline">
               Home
             </li>
           </Link>
+
           <Link href="/about">
             <li className="hidden md:inline text-slate-700 hover:underline">
               About
             </li>
           </Link>
+
           <SignedIn>
             <UserButton />
           </SignedIn>
@@ -66,6 +72,7 @@ export default function Header() {
           </SignedOut>
         </ul>
       </div>
+
     </header>
   );
 }
