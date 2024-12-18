@@ -2,18 +2,18 @@
 
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+// import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 export default function Header() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+  // const searchParams = useSearchParams();
+  // const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     console.log("useffect");
-  }, [searchParams]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,7 +41,6 @@ export default function Header() {
           />
           <button>
             <FaSearch className="text-slate-600" />
-            {/* <FaSearch /> */}
           </button>
         </form>
         <ul className="flex gap-4">
@@ -55,8 +54,6 @@ export default function Header() {
               About
             </li>
           </Link>
-          {/* Sign-in here 
-          Sign-out here */}
           <SignedIn>
             <UserButton />
           </SignedIn>
