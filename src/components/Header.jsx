@@ -1,10 +1,10 @@
 "use client";
 
-// import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch } from "react-icons/fa";
 
 export default function Header() {
   const searchParams = useSearchParams();
@@ -12,13 +12,13 @@ export default function Header() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    console.log('useffect')
+    console.log("useffect");
   }, [searchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e)
-  }
+    console.log(e);
+  };
   return (
     <header className="bg-slate-200 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
@@ -28,17 +28,20 @@ export default function Header() {
             <span className="text-slate-700">Estates</span>
           </h1>
         </Link>
-        <form onSubmit={handleSubmit} className="bg-slate-100 p-3 rounded-lg flex items-center">
-          <input 
-            type="text" 
+        <form
+          onSubmit={handleSubmit}
+          className="bg-slate-100 p-3 rounded-lg flex items-center"
+        >
+          <input
+            type="text"
             placeholder="Search..."
-            className="bg-transparent focus:outline-none w-24 sm:w-64" 
+            className="bg-transparent focus:outline-none w-24 sm:w-64"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button>
-            {/* <FaSearch className="text-slate-600" /> */}
-            <FaSearch />
+            <FaSearch className="text-slate-600" />
+            {/* <FaSearch /> */}
           </button>
         </form>
         <ul className="flex gap-4">
@@ -52,18 +55,18 @@ export default function Header() {
               About
             </li>
           </Link>
-          <h2>Signin here </h2>
-          <h2>Signout here commented out</h2>
-          {/* <SignedIn>
+          {/* Sign-in here 
+          Sign-out here */}
+          <SignedIn>
             <UserButton />
           </SignedIn>
-          <SignOut>
+          <SignedOut>
             <Link href="/sign-in">
               <li className="hidden md:inline text-slate-700 hover:underline">
                 Sign In
               </li>
             </Link>
-          </SignOut> */}
+          </SignedOut>
         </ul>
       </div>
     </header>
